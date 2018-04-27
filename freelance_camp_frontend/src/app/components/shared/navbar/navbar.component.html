@@ -1,0 +1,22 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary" >
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" [routerLink]="['/home']">Freelance</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLinkActive ="active" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLinkActive ="active" [routerLink]="['documents']">Documents</a>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Proposals
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLinkActive ="active" [routerLink]="['proposals']" [routerLinkActiveOptions]="{exact: true}">List</a>
+              <a class="dropdown-item" routerLinkActive ="active" [routerLink]="['proposals/new']">New</a>
+             
+            </div>
+        </div>
+        </div>
+    </div>
+  </nav>

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card proposal-card" *ngIf="proposal">
+        <h1>{{proposal.customer}}</h1>
+        <div class="col-md-12">
+            <p>Hi {{proposal.customer}}</p>
+
+            <p>It was a pleasure getting to meet with you and review your project requirements, I believe it is a great fit
+                for the types of applications that I build out. Please feel free to check out some of my past projects
+                <a href="{{proposal.portfolio_url}}">here</a>.</p>
+
+            <p>To succesfully build out the application I will be utilizang {{proposal.tools}}, and...</p>
+            <p>Ensuring that you are fully informed is one of my tio priorities...</p>
+            <p>To acoplish the project and meet the requirements that we discussed, I am estimating that it will take {{proposal.estimated_hours}}
+                hours in development time to complete. The project should take {{proposal.weeks_to_complete}} weeks to complete
+                and with my hourly rate of {{proposal.hourly_rate}}/hour, the estimated total will be {{proposal.hourly_rate
+                * proposal.estimated_hours| currency: 'EUR':true:'.0'}}.
+            </p>
+            <p></p>
+        </div>
+    </div>
+</div>

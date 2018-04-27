@@ -1,0 +1,94 @@
+<h1>New Proposal</h1>
+<hr>
+<br>
+
+<div class="row">
+  <div class="col-md-6">
+
+
+    <form (ngSubmit)="createProposal(proposal)" #porposalForm="ngForm">
+
+      <div class="form-group row">
+        <label for="customer" class="col-4 col-form-label">Customer name*</label>
+        <div class="col-8">
+          <input type="text" class="form-control" name="customer" #customer='ngModel' [(ngModel)]="proposal.customer" required placeholder="customer name...">
+          <div [hidden]="customer.valid || customer.pristine" class="error">Customer name is required</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="portfolio" class="col-4 col-form-label">Portfolio url*</label>
+        <div class="col-8">
+          <input type="text" class="form-control" name="portfolio" #portfolio='ngModel' [(ngModel)]="proposal.portfolio_url" required
+            placeholder="Portfolio url..">
+          <div [hidden]="portfolio.valid || portfolio.pristine" class="error">Portfolio url name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="tools" class="col-4 col-form-label">Tools that you'll use on the project*</label>
+        <div class="col-8">
+          <input type="text" class="form-control" name="tools" #tools='ngModel' [(ngModel)]="proposal.tools" required placeholder="tools...">
+          <div [hidden]="tools.valid || tools.pristine" class="error">List of tools is required</div>
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="hours" class="col-4 col-form-label">Estimated hours*</label>
+        <div class="col-8">
+          <input type="number" class="form-control" name="hours" #hours='ngModel' [(ngModel)]="proposal.estimated_hours" required placeholder="estimated hours...">
+          <div [hidden]="hours.valid || hours.pristine" class="error">Estimated hours is required</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="hourly_rate" class="col-4 col-form-label">Hourly rate*</label>
+        <div class="col-8">
+          <input type="number" class="form-control" name="hourly_rate" #hourly_rate='ngModel' [(ngModel)]="proposal.hourly_rate" required
+            placeholder="estimated hours...">
+          <div [hidden]="hourly_rate.valid || hourly_rate.pristine" class="error">Hourly rate is required</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="weeks" class="col-4 col-form-label">Weeks to complete*</label>
+        <div class="col-8">
+          <input type="number" class="form-control" name="weeks" #weeks='ngModel' [(ngModel)]="proposal.weeks_to_complete" required
+            placeholder="estimated hours...">
+          <div [hidden]="weeks.valid || weeks.pristine" class="error">required</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-4 col-form-label">Client Email</label>
+        <div class="col-8">
+          <input type="email" class="form-control" name="email" #email='ngModel' [(ngModel)]="proposal.client_email" placeholder="estimated hours...">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-outline-primary btn-lg" [disabled]="porposalForm.form.invalid" [hidden]="submited">Generate Proposal</button>
+
+      <div [hidden]="!submitted">
+        Your proposal has been generated <a class="alert-link"[routerLink]="['/proposals']">View all proposals</a>
+      </div>
+
+    </form>
+  </div>
+  <div class="col-md-6">
+      <p>Hi {{proposal.customer}}</p>
+      
+        <p>It was a pleasure getting to meet with you and review your project requirements, I believe it is a great fit for the types
+          of applications that I build out. Please feel free to check out some of my past projects
+          <a href="{{proposal.portfolio_url}}">here</a>.</p>
+      
+        <p>To succesfully build out the application I will be utilizang {{proposal.tools}}, and...</p>
+        <p>Ensuring that you are fully informed is one of my tio priorities...</p>
+        <p>To acoplish the project and meet the requirements that we discussed, I am estimating that it will take {{proposal.estimated_hours}}
+          hours in development time to complete. The project should take {{proposal.weeks_to_complete}} weeks to complete and with
+          my hourly rate of {{proposal.hourly_rate}}/hour, the estimated total will be {{proposal.hourly_rate * proposal.estimated_hours| currency: 'EUR':true:'.0'}}.
+        </p>
+        <p></p>
+  </div>
+</div>
+
+
